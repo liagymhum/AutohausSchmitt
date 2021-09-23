@@ -1,0 +1,11 @@
+*Hausaufgaben:*
+    Klasse für alle Objekte mit Grundlegenden Methoden.
+
+Begriffe:
+    Methodensignatur:
+        public void beispielMethode(){
+
+        }
+    Punkt-Notation:
+        String.getChar();
+    

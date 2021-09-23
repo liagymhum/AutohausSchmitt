@@ -1,4 +1,6 @@
 public class Methoden {
+
+    // Methode gibt Anzahl der zugewiesenen Elemente in Array zurück (Integer)
     public int elesInArray(Object[] array){
         int i = 0;
         for(Object o : array){

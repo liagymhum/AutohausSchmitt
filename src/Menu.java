@@ -103,7 +103,7 @@ public class Menu extends Methoden{
     }
 
     public void createVerkaeuferMenu(){
-        System.out.println("Bitte Daten den neuen Kunden eingeben:");
+        System.out.println("Bitte Daten den neuen Verkäufer eingeben:");
         System.out.print("Vorname: ");
         String vorname = getScanner().next();
         System.out.print("Nachname: ");

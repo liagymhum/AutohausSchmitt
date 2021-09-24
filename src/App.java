@@ -3,12 +3,14 @@ public class App {
     static Auto[] _autos;
     static Kunde[] _kunden;
     static Verkaeufer[] _verkaeufer;
+    static Verkauf[] _verkaeufe;
 
     public static void main(String[] args) throws Exception {
         //Initialisieren der Arrays
         _autos = new Auto[8]; // Anzahl maximal möglicher Elemente im Array
         _kunden = new Kunde[8];
         _verkaeufer = new Verkaeufer[8];
+        _verkaeufe = new Verkauf[8];
 
         Menu menu = new Menu();
         menu.startMenu();

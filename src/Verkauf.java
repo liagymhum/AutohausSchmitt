@@ -4,11 +4,11 @@ public class Verkauf {
     Verkaeufer _verkaeufer;
     int _preis;
 
-    public Verkauf(Auto auto, Verkaeufer verkaeufer, Kunde kunde){
+    public Verkauf(Auto auto, Verkaeufer verkaeufer, Kunde kunde, int preis){
         this.setAuto(auto);
         this.setVerkaeufer(verkaeufer);
         this.setKunde(kunde);
-        
+        this.setPreis(preis);
     }
 
     // GETTER

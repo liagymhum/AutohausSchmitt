@@ -2,9 +2,9 @@ public class Verkauf {
     Auto _auto;
     Kunde _kunde;
     Verkaeufer _verkaeufer;
-    int _preis;
+    String _preis;
 
-    public Verkauf(Auto auto, Verkaeufer verkaeufer, Kunde kunde, int preis){
+    public Verkauf(Auto auto, Verkaeufer verkaeufer, Kunde kunde, String preis){
         this.setAuto(auto);
         this.setVerkaeufer(verkaeufer);
         this.setKunde(kunde);
@@ -21,7 +21,7 @@ public class Verkauf {
         return _kunde;
     }
 
-    public int getPreis() {
+    public String getPreis() {
         return _preis;
     }
 
@@ -39,7 +39,7 @@ public class Verkauf {
         this._kunde = kunde;
     }
 
-    public void setPreis(int preis) {
+    public void setPreis(String preis) {
         this._preis = preis;
     }
 

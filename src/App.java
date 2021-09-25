@@ -13,6 +13,7 @@ public class App {
         _verkaeufe = new Verkauf[8];
 
         Menu menu = new Menu();
+        menu.createVerkaufMenu();
         menu.startMenu();
     }
 
@@ -29,6 +30,10 @@ public class App {
                 break;
             }
         }
+    }
+
+    public static void addVerkauf(Verkauf verkauf){
+        addObject(verkauf, getAllVerkaeufe());
     }
 
     public static void addAuto(Auto auto){
@@ -53,5 +58,9 @@ public class App {
 
     public static Verkaeufer[] getAllVerkaeufer(){
         return _verkaeufer;
+    }
+
+    public static Verkauf[] getAllVerkaeufe(){
+        return _verkaeufe;
     }
 }

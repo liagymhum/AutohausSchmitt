@@ -54,6 +54,7 @@ public class Menu extends Methoden{
         else{
             System.out.println("Auswahl ungültig.");
         }
+        System.out.println();
         startMenu();
     }
 
@@ -77,7 +78,7 @@ public class Menu extends Methoden{
         String availableKunden = "";
         for(Kunde kunde : App.getAllKunden()){
             if(kunde != null){
-                availableKunden = availableKunden+i+") "+kunde.getVorname()+" "+kunde.getNachname()+"\n";
+                availableKunden = availableKunden+i+") "+kunde.getVorname()+" "+kunde.getNachname()+" ["+kunde.getKundennummer()+"]\n";
                 i++;
             }
         }
@@ -89,7 +90,7 @@ public class Menu extends Methoden{
         String availableVerkaeufer = "";
         for(Verkaeufer v : App.getAllVerkaeufer()){
             if(v != null){
-                availableVerkaeufer = availableVerkaeufer+i+") "+v.getVorname()+" "+v.getNachname()+"\n";
+                availableVerkaeufer = availableVerkaeufer+i+") "+v.getVorname()+" "+v.getNachname()+" ["+v.getPersonalnummer()+"]\n";
             i++;
             }
         }
@@ -99,11 +100,12 @@ public class Menu extends Methoden{
     public String showVerkaeufe(){
         int i = 0;
         String availableVerkaeufe = "";
-        for(Verkauf v : App.getAllVerkaeufe()){
-            if(v != null){
-                availableVerkaeufe = availableVerkaeufe+i+") Auto: "+v.getAuto().getMarke()+" "+v.getAuto().getModell()+"\nKunde: "+v.getKunde().getVorname()+" "+v.getKunde().getNachname()+"\nVerkäufer: "+v.getVerkaeufer().getVorname()+" "+v.getVerkaeufer().getNachname()+" "+v.getVerkaeufer().getPersonalnummer();
-                i++;
+        for(Verkauf vk : App.getAllVerkaeufe()){
+            if(vk != null){
+                String i2 = String.valueOf(i);
+                availableVerkaeufe = availableVerkaeufe + i2+") Auto: "+vk.getAuto().getMarke()+" "+vk.getAuto().getModell()+", Kunde: "+vk.getKunde().getVorname()+" "+vk.getKunde().getNachname()+" ["+vk.getKunde().getKundennummer()+"], Verkäufer: "+vk.getVerkaeufer().getVorname()+" "+vk.getVerkaeufer().getNachname()+" ["+vk.getVerkaeufer().getPersonalnummer()+"], Preis: "+vk.getPreis()+"\n";
             }
+            i++;
         }
         return availableVerkaeufe;
     }
@@ -118,14 +120,14 @@ public class Menu extends Methoden{
         System.out.println("Ausgewähltes Auto: "+App.getAllAutos()[a].getMarke()+" "+App.getAllAutos()[a].getModell());
 
         // Verkäufer auswählen
-        System.out.println("\nBitte gib den Verkäufer an: "+showVerkaeufer());
+        System.out.println("\nBitte gib den Verkäufer an: \n"+showVerkaeufer());
         String verk = getScanner().next();
         int v = Integer.valueOf(verk);
         System.out.println("Ausgewählter Verkäufer: "+App.getAllVerkaeufer()[v].getPersonalnummer());
 
         // Kunde asuwählen oder neu anlegen
-        System.out.println("\nBitte gib den Kunden an: "+showKunden());
-        int numNewKunde = elesInArray(App.getAllKunden())+1;
+        System.out.println("\nBitte gib den Kunden an: \n"+showKunden());
+        int numNewKunde = elesInArray(App.getAllKunden());
         System.out.println(numNewKunde+" Neuen Kunden auswählen");
         String kunde = getScanner().next();
         int k = Integer.valueOf(kunde);
@@ -144,6 +146,7 @@ public class Menu extends Methoden{
         App.addVerkauf(new Verkauf(App.getAllAutos()[a],App.getAllVerkaeufer()[v],App.getAllKunden()[k],preis));
         
         // DEBUG
+        /*
         int i = 0;
         for(Verkauf vk : App.getAllVerkaeufe()){
             if(vk != null){
@@ -152,6 +155,7 @@ public class Menu extends Methoden{
             }
             i++;
         }
+        */
     }
 
     public void createAutoMenu(){

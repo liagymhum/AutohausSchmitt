@@ -4,10 +4,6 @@ public class Auto {
     String _modell;
     int _baujahr;
 
-    public Auto(String marke){
-        this.setMarke(marke);
-    }
-
     public Auto(String marke, String modell, int baujahr){
         this.setMarke(marke);
         this.setModell(modell);

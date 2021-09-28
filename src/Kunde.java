@@ -1,14 +1,16 @@
-public class Kunde {
+public class Kunde extends Methoden {
     String _vorname;
     String _nachname;
     String _adresse;
     String _telefon;
     String _mail;
+    String _kundennummer;
 
     public Kunde(String vorname, String nachname){
         this.setVorname(vorname);
         this.setNachname(nachname);
-
+        String stringKundennummer = String.valueOf(elesInArray(App.getAllKunden())+1);
+        this.setKundennummer(stringKundennummer);
     }
 
     // GETTER
@@ -33,6 +35,10 @@ public class Kunde {
         return _vorname;
     }
 
+    public String getKundennummer() {
+        return _kundennummer;
+    }
+
     // SETTER
 
     public void setAdresse(String adresse) {
@@ -53,6 +59,10 @@ public class Kunde {
 
     public void setVorname(String vorname) {
         this._vorname = vorname;
+    }
+
+    public void setKundennummer(String _kundennummer) {
+        this._kundennummer = _kundennummer;
     }
 
 }

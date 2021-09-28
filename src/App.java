@@ -16,12 +16,6 @@ public class App {
         menu.startMenu();
     }
 
-/*
-    public static void addAuto(Auto auto){
-        _autos[0] = auto;
-    }
-*/
-
     public static void addObject(Object ele, Object[] array){
         for(int i = 0; i < array.length; i++){
             if(array[i] == null){

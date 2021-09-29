@@ -61,12 +61,15 @@ public class Menu extends Methoden{
 
     // ZEIGE VERFÜGBARE ELEMENTE
 
+    // Autos zeigen
     public String showAutos(){
-        int i = 0;
+        int i = 0; // Zählvariable wird auf Null gesetzt
         String availableCars = "";
         for(Auto auto : App.getAllAutos()){
             if(auto != null){
+                // in String "availableCars" wird jedes Element des Arrays "getAllAutos" gespreichert
                 availableCars = availableCars+i+") "+auto.getMarke()+" "+auto.getModell()+"\n";
+                // Marke und Modell werden gespeichert
                 i++;
             }
         }
@@ -103,7 +106,7 @@ public class Menu extends Methoden{
         for(Verkauf vk : App.getAllVerkaeufe()){
             if(vk != null){
                 String i2 = String.valueOf(i);
-                availableVerkaeufe = availableVerkaeufe + i2+") Auto: "+vk.getAuto().getMarke()+" "+vk.getAuto().getModell()+", Kunde: "+vk.getKunde().getVorname()+" "+vk.getKunde().getNachname()+" ["+vk.getKunde().getKundennummer()+"], Verkäufer: "+vk.getVerkaeufer().getVorname()+" "+vk.getVerkaeufer().getNachname()+" ["+vk.getVerkaeufer().getPersonalnummer()+"], Preis: "+vk.getPreis()+"\n";
+                availableVerkaeufe = availableVerkaeufe + i2+") Auto: "+vk.getAuto().getMarke()+" "+vk.getAuto().getModell()+", Kunde: "+vk.getKunde().getVorname()+" "+vk.getKunde().getNachname()+" ["+vk.getKunde().getKundennummer()+"], Verkäufer: "+vk.getVerkaeufer().getVorname()+" "+vk.getVerkaeufer().getNachname()+" ["+vk.getVerkaeufer().getPersonalnummer()+"], Preis: "+vk.getPreis()+"€\n";
             }
             i++;
         }
@@ -140,7 +143,7 @@ public class Menu extends Methoden{
 
         // Preis auswählen
         System.out.println("\nBitte gib den Preis an: ");
-        String preis = getScanner().next();
+        int preis = getScanner().nextInt();
 
         // Verkauf erstellen
         App.addVerkauf(new Verkauf(App.getAllAutos()[a],App.getAllVerkaeufer()[v],App.getAllKunden()[k],preis));
